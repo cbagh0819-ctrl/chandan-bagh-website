@@ -14,7 +14,7 @@ Then open <http://localhost:3000>.
 
 ## Publish with GitHub Pages
 
-The workflow in `.github/workflows/pages.yml` deploys the static site whenever a commit is pushed to `main`. In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**. The published site URL will be:
+GitHub Pages publishes the repository root from the `main` branch. The published site URL will be:
 
 `https://cbagh0819-ctrl.github.io/chandan-bagh-website/`
 
