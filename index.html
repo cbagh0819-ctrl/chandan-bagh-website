@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHANDAN BAGH — Cybersecurity, AI & 3D Systems Engineer</title>
+  <meta name="description" content="Chandan Bagh · 3rd Year Engineering at Parala Maharaja Engineering College (PMEC) · Alum KV No. 1 Sambalpur · Creator of CHARLO Autonomous AI Testing Agent & 3D Neural Connectome Engines.">
+  <meta name="theme-color" content="#07080c">
+
+  <!-- Security Hardening: Content Security Policy, Clickjacking Protection, Referrer & Permissions -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://generativelanguage.googleapis.com https://api.groq.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- GSAP & Lenis Smooth Scroll -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <!-- Lucide Icons -->
+  <script defer src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Critical Preloader CSS (Guarantees zero FOUC & zero caching issues) -->
+  <style id="preloader-critical-css">
+    body.preloader-active {
+      overflow: hidden !important;
+    }
+    .site-preloader {
+      position: fixed !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      background: radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.04) 0%, #050609 70%) !important;
+      background-color: #050609 !important;
+      z-index: 999999 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      user-select: none !important;
+      cursor: pointer !important;
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      will-change: opacity, transform, filter !important;
+    }
+    .site-preloader.loaded {
+      opacity: 0 !important;
+      transform: scale(1.02) !important;
+      filter: blur(8px) !important;
+      pointer-events: none !important;
+    }
+    .minimal-preloader-wrap {
+      width: 90% !important;
+      max-width: 340px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+      gap: 1.5rem !important;
+    }
+    .minimal-brand {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 0.65rem !important;
+    }
+    .minimal-symbol {
+      color: #00f0ff !important;
+      font-size: 0.85rem !important;
+      text-shadow: 0 0 10px rgba(0, 240, 255, 0.6) !important;
+      animation: symbolPulse 2s ease-in-out infinite alternate !important;
+    }
+    .minimal-name {
+      font-family: 'Space Grotesk', -apple-system, sans-serif !important;
+      font-size: 0.88rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.28em !important;
+      color: #f1f5f9 !important;
+      text-transform: uppercase !important;
+    }
+    .minimal-meter {
+      width: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0.65rem !important;
+    }
+    .minimal-track {
+      width: 100% !important;
+      height: 2px !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      border-radius: 999px !important;
+      overflow: hidden !important;
+      position: relative !important;
+    }
+    .minimal-bar {
+      width: 0% !important;
+      height: 100% !important;
+      background: linear-gradient(90deg, #00f0ff, #8b5cf6 75%, #ec4899) !important;
+      border-radius: 999px !important;
+      box-shadow: 0 0 10px rgba(0, 240, 255, 0.7) !important;
+      transition: width 0.12s linear !important;
+    }
+    .minimal-meta {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      font-family: 'JetBrains Mono', monospace !important;
+      font-size: 0.66rem !important;
+      letter-spacing: 0.08em !important;
+      color: #64748b !important;
+    }
+    .minimal-status {
+      color: #64748b !important;
+      text-transform: uppercase !important;
+      font-size: 0.64rem !important;
+      transition: color 0.3s ease !important;
+      text-align: left !important;
+      white-space: nowrap !important;
+    }
+    .minimal-pct {
+      color: #00f0ff !important;
+      font-weight: 500 !important;
+      font-size: 0.72rem !important;
+      font-variant-numeric: tabular-nums !important;
+      margin-left: 0.5rem !important;
+    }
+    .minimal-hint {
+      font-family: 'JetBrains Mono', monospace !important;
+      font-size: 0.58rem !important;
+      letter-spacing: 0.12em !important;
+      color: #475569 !important;
+      text-transform: uppercase !important;
+      transition: color 0.2s ease, opacity 0.2s ease !important;
+      cursor: pointer !important;
+      margin-top: -0.4rem !important;
+      opacity: 0.6 !important;
+    }
+    .site-preloader:hover .minimal-hint {
+      color: #00f0ff !important;
+      opacity: 1 !important;
+    }
+    @keyframes symbolPulse {
+      0% { opacity: 0.5; transform: scale(0.92); }
+      100% { opacity: 1; transform: scale(1.1); filter: drop-shadow(0 0 6px #00f0ff); }
+    }
+  </style>
+
+  <link rel="stylesheet" href="style.css?v=2.6">
+</head>
+<body class="preloader-active">
+
+  <!-- ========================================================================
+       MINIMAL EDITORIAL PRELOADER (8-SECOND CINEMATIC BOOT)
+       ======================================================================== -->
+  <aside class="site-preloader" id="sitePreloader" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Loading Chandan Bagh Portfolio">
+    <div class="minimal-preloader-wrap">
+      <div class="minimal-brand">
+        <span class="minimal-symbol">✦</span>
+        <span class="minimal-name">CHANDAN BAGH</span>
+      </div>
+
+      <div class="minimal-meter">
+        <div class="minimal-track">
+          <div class="minimal-bar" id="preloaderBar"></div>
+        </div>
+        <div class="minimal-meta">
+          <span class="minimal-status" id="preloaderStatusText">INITIALIZING KERNEL MATRIX...</span>
+          <span class="minimal-pct" id="preloaderPercent">00%</span>
+        </div>
+      </div>
+
+      <div class="minimal-hint">CLICK ANYWHERE TO SKIP ↵</div>
+    </div>
+  </aside>
+
+  <!-- Immediate Preloader Engine (Cinematic 8-Second Progression with Fast-Boot) -->
+  <script>
+    (function() {
+      const preloader = document.getElementById('sitePreloader');
+      const bar = document.getElementById('preloaderBar');
+      const pct = document.getElementById('preloaderPercent');
+      const statusText = document.getElementById('preloaderStatusText');
+
+      let progress = 0;
+      let isDone = false;
+
+      function updateStatus(val) {
+        if (!statusText) return;
+        if (val < 22) {
+          statusText.textContent = 'INITIALIZING KERNEL MATRIX...';
+        } else if (val < 48) {
+          statusText.textContent = 'MOUNTING CHARLO ARCHITECTURE...';
+        } else if (val < 72) {
+          statusText.textContent = 'SYNCHRONIZING 3D CONNECTOME...';
+        } else if (val < 92) {
+          statusText.textContent = 'CALIBRATING 8D AUDIO DSP...';
+        } else if (val < 99) {
+          statusText.textContent = 'ESTABLISHING QUANTUM LINK...';
+        } else {
+          statusText.textContent = 'ACCESS GRANTED // WELCOME';
+          statusText.style.color = '#00f0ff';
+        }
+      }
+
+      function finish() {
+        if (isDone) return;
+        isDone = true;
+        if (bar) bar.style.width = '100%';
+        if (pct) pct.textContent = '100%';
+        if (preloader) preloader.setAttribute('aria-valuenow', '100');
+        updateStatus(100);
+
+        setTimeout(function() {
+          if (preloader) preloader.classList.add('loaded');
+          document.body.classList.remove('preloader-active');
+          if (window.__lenis) {
+            try {
+              window.__lenis.start();
+              window.__lenis.resize();
+            } catch (err) {}
+          }
+          if (typeof window.__triggerHeroEntranceAnimations === 'function') {
+            window.__triggerHeroEntranceAnimations();
+          }
+          setTimeout(function() {
+            if (preloader) preloader.style.display = 'none';
+          }, 700);
+        }, 300);
+      }
+
+      window.__finishPreloader = finish;
+
+      const start = performance.now();
+      const dur = 500;
+
+      function calculateProgress(elapsed, totalDur) {
+        const t = Math.min(1, elapsed / totalDur);
+        let p;
+        if (t < 0.25) {
+          p = (t / 0.25) * 25;
+        } else if (t < 0.65) {
+          p = 25 + ((t - 0.25) / 0.40) * 45;
+        } else if (t < 0.92) {
+          p = 70 + ((t - 0.65) / 0.27) * 24;
+        } else {
+          p = 94 + ((t - 0.92) / 0.08) * 6;
+        }
+        return Math.min(100, p);
+      }
+
+      function step(now) {
+        if (isDone) return;
+        const elapsed = now - start;
+        const targetProgress = Math.min(100, Math.floor(calculateProgress(elapsed, dur)));
+
+        if (targetProgress > progress) {
+          progress = targetProgress;
+          if (bar) bar.style.width = progress + '%';
+          if (pct) pct.textContent = (progress < 10 ? '0' : '') + progress + '%';
+          if (preloader) preloader.setAttribute('aria-valuenow', progress);
+          updateStatus(progress);
+        }
+
+        if (elapsed >= dur) {
+          finish();
+        } else {
+          requestAnimationFrame(step);
+        }
+      }
+
+      requestAnimationFrame(step);
+
+      if (preloader) {
+        preloader.addEventListener('click', finish);
+      }
+      setTimeout(finish, 800);
+    })();
+  </script>
+
+  <!-- Custom Cursor System -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="cursor-label" id="cursorLabel">EXPLORE</div>
+
+  <!-- Noise Film Grain Overlay -->
+  <div class="grain-overlay"></div>
+
+  <!-- Generative Starfield & Dream Aurora Canvas -->
+  <canvas id="ambientCanvas"></canvas>
+
+  <!-- Side Depth / Scrollytelling Ruler -->
+  <aside class="dimension-ruler" aria-hidden="true">
+    <div class="ruler-line">
+      <div class="ruler-progress" id="rulerProgress"></div>
+    </div>
+    <div class="ruler-ticks">
+      <span class="tick active" data-depth="000m">000M · ORIGIN</span>
+      <span class="tick" data-depth="150m">150M · ETHOS</span>
+      <span class="tick" data-depth="300m">300M · GITHUB LABS</span>
+      <span class="tick" data-depth="500m">500M · CHARLO OS</span>
+      <span class="tick" data-depth="750m">750M · CTTC INTERNSHIP</span>
+      <span class="tick" data-depth="950m">950M · PMEC & ACADEMICS</span>
+    </div>
+    <div class="coordinate-readout">
+      <span class="coord-label">COORD</span>
+      <span class="coord-val" id="coordReadout">X: 000 Y: 000</span>
+    </div>
+  </aside>
+
+  <!-- Top Persistent Navigation -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#hero" class="brand-logo magnetic" data-strength="15">
+        <span class="logo-symbol">✦</span>
+        <span class="logo-text">CHANDAN<span class="dim">.BAGH</span></span>
+      </a>
+
+      <!-- Ambient Sound Capsule -->
+      <div class="audio-capsule">
+        <button class="sound-toggle-btn magnetic" id="soundToggle" data-strength="20" title="Play or pause Mr. Perfect" aria-pressed="false">
+          <div class="equalizer" id="equalizer">
+            <span class="bar bar-1"></span>
+            <span class="bar bar-2"></span>
+            <span class="bar bar-3"></span>
+            <span class="bar bar-4"></span>
+          </div>
+          <span class="sound-label" id="soundLabel">SOUND: OFF</span>
+        </button>
+      </div>
+
+      <!-- Quick Nav Links -->
+      <nav class="main-nav" id="siteNavigation" aria-label="Main navigation">
+        <a href="#works" class="nav-link magnetic" data-strength="15">GitHub Works</a>
+        <a href="games.html" class="nav-link games-nav-link magnetic" data-strength="15">Play Games</a>
+        <a href="#philosophy" class="nav-link magnetic" data-strength="15">Ethos</a>
+        <a href="#lab" class="nav-link magnetic" data-strength="15">Lab</a>
+        <a href="#experience" class="nav-link magnetic" data-strength="15">PMEC & KV1</a>
+        <button type="button" class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-controls="siteNavigation" aria-expanded="false"><span></span></button>
+        <a href="#contact" class="nav-btn magnetic" data-strength="25">
+          <span>Connect</span>
+          <i data-lucide="arrow-up-right"></i>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="mainContent">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-container">
+        
+        <!-- Status Pill -->
+        <div class="status-badge-wrapper fade-in-init">
+          <div class="status-badge">
+            <span class="pulse-dot"></span>
+            <span class="status-text">CURRENT STATUS: <em>3RD YEAR @ PMEC COLLEGE · BUILDING CYBER & AI SYSTEMS</em></span>
+            <span class="status-sep">/</span>
+            <span class="status-location">ODISHA, INDIA (IST)</span>
+          </div>
+        </div>
+
+        <!-- Grand Kinetic Display Title with Profile Frame -->
+        <div class="hero-main-row">
+          <div class="hero-display">
+            <div class="display-line reveal-text">
+              <span class="kinetic-word" data-stretch="CYBER">CYBER</span>
+              <span class="symbol-amp">&</span>
+              <span class="serif-italic">Systems</span>
+            </div>
+            <div class="display-line reveal-text delay-1">
+              <span class="dim-glow">BEYOND</span>
+              <span class="kinetic-word stretch-hover" data-stretch="BOUNDARIES">THE SURFACE</span>
+            </div>
+          </div>
+
+          <!-- Photo Slot Placeholder for Next Step -->
+          <div class="hero-photo-badge fade-in-init delay-1">
+            <div class="photo-card-wrap">
+              <div class="photo-avatar-placeholder" id="heroPhotoSlot">
+                <img src="profile.jpg" alt="Chandan Bagh" class="avatar-real-img" id="userAvatarImg">
+                <div class="avatar-scanner-line"></div>
+                <div class="avatar-inner-content">
+                  <span class="avatar-name">CHANDAN BAGH</span>
+                  <span class="avatar-spec">B.Tech 3rd Year · PMEC</span>
+                  <a href="https://www.instagram.com/chandan.bagh07/" target="_blank" rel="noopener noreferrer" class="photo-cta-pill instagram-pill">
+                    <i data-lucide="instagram"></i>
+                    <span>@chandan.bagh07</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Sub-Content -->
+        <div class="hero-bottom-grid">
+          <div class="hero-narrative fade-in-init delay-2">
+            <p class="lead-paragraph">
+              Computer Science & Engineering (CSE) undergraduate at <strong>Parala Maharaja Engineering College (PMEC)</strong>, Berhampur and alumnus of <strong>Kendriya Vidyalaya No. 1 Sambalpur</strong>. Creator of <a href="https://github.com/cbagh0819-ctrl/charlo-testing-agent" target="_blank" rel="noopener noreferrer" class="inline-project-link">CHARLO Testing Agent</a> — an autonomous cybersecurity analysis workstation with AST code auto-patching, 3D WebGL neural connectome engines, and aerospace propulsion simulators.
+            </p>
+            <!-- Perfectly Aligned Credentials & Action Links -->
+            <div class="hero-credentials-group">
+              <div class="hero-badges-row">
+                <span class="cred-pill">
+                  <i data-lucide="graduation-cap"></i>
+                  <span>3rd Year B.Tech CSE @ PMEC</span>
+                </span>
+                <span class="cred-pill">
+                  <i data-lucide="briefcase"></i>
+                  <span>Data Analytics Intern @ CTTC</span>
+                </span>
+                <span class="cred-pill">
+                  <i data-lucide="award"></i>
+                  <span>1st Position Code Kriti 3.0</span>
+                </span>
+                <span class="cred-pill">
+                  <i data-lucide="shield"></i>
+                  <span>Autonomous Cybersecurity & QA</span>
+                </span>
+              </div>
+
+              <div class="hero-actions-row">
+                <a href="https://github.com/cbagh0819-ctrl" target="_blank" rel="noopener noreferrer" class="hero-action-pill github-action magnetic" data-strength="15">
+                  <i data-lucide="github"></i>
+                  <span>GitHub (@cbagh0819-ctrl)</span>
+                  <i data-lucide="arrow-up-right" class="arrow-icon"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/chandan-bagh-301443323/" target="_blank" rel="noopener noreferrer" class="hero-action-pill linkedin-action magnetic" data-strength="15">
+                  <i data-lucide="linkedin"></i>
+                  <span>LinkedIn Profile</span>
+                  <i data-lucide="arrow-up-right" class="arrow-icon"></i>
+                </a>
+                <a href="https://www.instagram.com/chandan.bagh07/" target="_blank" rel="noopener noreferrer" class="hero-action-pill instagram-action magnetic" data-strength="15">
+                  <i data-lucide="instagram"></i>
+                  <span>Instagram</span>
+                  <i data-lucide="arrow-up-right" class="arrow-icon"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-interaction fade-in-init delay-3">
+            <div class="scroll-cue">
+              <div class="mouse-icon">
+                <span class="wheel"></span>
+              </div>
+              <span class="scroll-label">SCROLL TO EXPLORE FEATURED PROJECTS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating Kinetic Ribbon -->
+        <div class="kinetic-ribbon" aria-hidden="true">
+          <div class="ribbon-track">
+            <span>PARALA MAHARAJA ENGINEERING COLLEGE (PMEC) ✦ KV NO. 1 SAMBALPUR ✦ CHARLO TESTING AGENT ✦ BOOM-BOOM AUDIO 8D DSP ✦ AST CODE AUTO-PATCHING ✦ FLYBRAINVISION 3D CONNECTOME ✦ KILL THE FLY NEURAL HUNTER ✦ AETHER-1 AEROSPACE ✦ REVERSE ENGINEERING ✦ </span>
+            <span>PARALA MAHARAJA ENGINEERING COLLEGE (PMEC) ✦ KV NO. 1 SAMBALPUR ✦ CHARLO TESTING AGENT ✦ BOOM-BOOM AUDIO 8D DSP ✦ AST CODE AUTO-PATCHING ✦ FLYBRAINVISION 3D CONNECTOME ✦ KILL THE FLY NEURAL HUNTER ✦ AETHER-1 AEROSPACE ✦ REVERSE ENGINEERING ✦ </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MANIFESTO & PHILOSOPHY SECTION -->
+    <section id="philosophy" class="philosophy-section">
+      <div class="container">
+        <div class="section-tag">
+          <span class="tag-number">01</span>
+          <span class="tag-title">THE ENGINEERING ETHOS</span>
+        </div>
+
+        <div class="manifesto-grid">
+          <div class="manifesto-left">
+            <h2 class="manifesto-headline">
+              "From KV No. 1 Sambalpur to PMEC:<br>
+              Software shouldn't merely execute — <span class="serif-glow">it must inspect, defend, and visualize</span> complex reality."
+            </h2>
+          </div>
+          
+          <div class="manifesto-right">
+            <p class="manifesto-body">
+              True computer engineering is not about passive consumption. It's about breaking systems down to their atomic instructions, exposing vulnerabilities, auto-remediating codebases at the AST syntax level, and rendering complex neural networks into intuitive spatial dimensions.
+            </p>
+
+            <div class="philosophy-pillars">
+              <div class="pillar-card">
+                <div class="pillar-num">I</div>
+                <h3>Autonomous Security & Remediation</h3>
+                <p>Architecting multi-target auditing workstations (Windows PE, Android APK, Web APIs) with SARIF OASIS standards, 18 testing engines, and AST code auto-patching.</p>
+              </div>
+              <div class="pillar-card">
+                <div class="pillar-num">II</div>
+                <h3>3D Spatial & Neural Computing</h3>
+                <p>Translating massive connectome datasets—like the FlyWire fruit-fly neural network—into interactive, high-density WebGL projections.</p>
+              </div>
+              <div class="pillar-card">
+                <div class="pillar-num">III</div>
+                <h3>Aerospace & Computational Physics</h3>
+                <p>Simulating aerodynamics, Tsiolkovsky ideal rocket equations, and propellant thermodynamic comparisons using Blender 3D and numerical Python models.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED GITHUB WORKS -->
+    <section id="works" class="works-section">
+      <div class="container">
+        <div class="section-header-row">
+          <div class="section-tag">
+            <span class="tag-number">02</span>
+            <span class="tag-title">FEATURED PROJECTS</span>
+          </div>
+          <div class="works-counter">
+            <span class="active-count">06</span> / <span>FEATURED PROJECTS</span>
+          </div>
+        </div>
+
+        <div class="projects-stack">
+
+          <!-- PROJECT 01: CHARLO TESTING AGENT -->
+          <article class="project-card tilt-card" data-project="0">
+            <div class="card-inner">
+              <div class="project-meta">
+                <div class="project-tags">
+                  <span class="tag">CYBERSECURITY</span>
+                  <span class="tag">SARIF OASIS V2.1.0</span>
+                  <span class="tag">AST AUTO-PATCHER</span>
+                  <span class="tag">FLAGSHIP</span>
+                </div>
+                <span class="project-index">01</span>
+              </div>
+
+              <div class="project-content-grid">
+                <div class="project-info">
+                  <div class="repo-badge-label">
+                    <i data-lucide="github"></i>
+                    <span>cbagh0819-ctrl / charlo-testing-agent</span>
+                  </div>
+                  <h3 class="project-title">
+                    CHARLO Testing Agent <span class="serif-italic">— Autonomous Security Workstation</span>
+                  </h3>
+                  <p class="project-desc">
+                    Autonomous AI-powered security, QA & automated remediation workstation for Windows, Android APKs, and Web applications. Features 18 specialized testing engines, interactive PoC exploit sandbox, and AST-level auto-patching diff studio.
+                  </p>
+                  
+                  <div class="project-metrics">
+                    <div class="metric">
+                      <span class="metric-num">18</span>
+                      <span class="metric-label">Specialized Engines</span>
+                    </div>
+                    <div class="metric">
+                      <span class="metric-num">100%</span>
+                      <span class="metric-label">133 Unit Tests Passed</span>
+                    </div>
+                  </div>
+
+                  <div class="project-action-group">
+                    <button class="project-inspect-btn magnetic" data-strength="20">
+                      <span>Inspect Architecture</span>
+                      <i data-lucide="maximize-2"></i>
+                    </button>
+                    <a href="https://cbagh0819-ctrl.github.io/charlo-testing-agent/" target="_blank" rel="noopener noreferrer" class="project-live-btn magnetic" data-strength="15">
+                      <span>Live Website</span>
+                      <i data-lucide="external-link"></i>
+                    </a>
+                    <a href="https://github.com/cbagh0819-ctrl/charlo-testing-agent" target="_blank" rel="noopener noreferrer" class="project-gh-btn magnetic" data-strength="15" title="View on GitHub">
+                      <i data-lucide="github"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="project-preview-frame">
+                  <div class="preview-visual cosmic-gradient-1">
+                    <div class="visual-badge">LIVE ON GITHUB PAGES</div>
+                    <div class="ui-mockup-wrapper">
+                      <div class="mockup-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="mockup-title">charlo-security-engine.sarif</span>
+                      </div>
+                      <div class="mockup-body">
+                        <div class="mockup-row">
+                          <span class="code-token">engine.auditTarget:</span>
+                          <span class="code-val">[WinPE, AndroidAPK, WebAPI]</span>
+                        </div>
+                        <div class="mockup-row">
+                          <span class="code-token">autoPatch.AST:</span>
+                          <span class="code-val">diff_patcher.apply_remediation()</span>
+                        </div>
+                        <div class="mockup-interactive-chip">
+                          <span class="chip-glow"></span>
+                          <span>SARIF v2.1.0 · 18 Engines Active</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="hover-glare"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 02: BOOM-BOOM AUDIO -->
+          <article class="project-card tilt-card" data-project="1">
+            <div class="card-inner">
+              <div class="project-meta">
+                <div class="project-tags">
+                  <span class="tag">KOTLIN · JETPACK COMPOSE</span>
+                  <span class="tag">REAL-TIME DSP ENGINE</span>
+                  <span class="tag">8D BINAURAL ORBIT</span>
+                  <span class="tag">AI ACOUSTICS</span>
+                </div>
+                <span class="project-index">02</span>
+              </div>
+
+              <div class="project-content-grid">
+                <div class="project-info">
+                  <div class="repo-badge-label">
+                    <i data-lucide="github"></i>
+                    <span>cbagh0819-ctrl / boom-boom-audio</span>
+                  </div>
+                  <h3 class="project-title">
+                    Boom-Boom Audio <span class="serif-italic">— Cyberpunk DSP & 8D Audio</span>
+                  </h3>
+                  <p class="project-desc">
+                    Cyberpunk-themed high-performance Android music player and Web Audio workstation. Features buffer-level real-time Digital Signal Processing (DSP), 8D orbital spatial panning, bass enhancement, and 100% offline acoustic AI intelligence.
+                  </p>
+                  
+                  <div class="project-metrics">
+                    <div class="metric">
+                      <span class="metric-num">8D</span>
+                      <span class="metric-label">Binaural Orbital DSP</span>
+                    </div>
+                    <div class="metric">
+                      <span class="metric-num">Zero-API</span>
+                      <span class="metric-label">100% Offline AI Model</span>
+                    </div>
+                  </div>
+
+                  <div class="project-action-group">
+                    <button class="project-inspect-btn magnetic" data-strength="20">
+                      <span>Inspect DSP Engine</span>
+                      <i data-lucide="maximize-2"></i>
+                    </button>
+                    <a href="https://cbagh0819-ctrl.github.io/boom-boom-audio/" target="_blank" rel="noopener noreferrer" class="project-live-btn magnetic" data-strength="15">
+                      <span>Live Web App</span>
+                      <i data-lucide="external-link"></i>
+                    </a>
+                    <a href="https://github.com/cbagh0819-ctrl/boom-boom-audio" target="_blank" rel="noopener noreferrer" class="project-gh-btn magnetic" data-strength="15" title="View on GitHub">
+                      <i data-lucide="github"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="project-preview-frame">
+                  <div class="preview-visual cosmic-gradient-5">
+                    <div class="visual-badge">LIVE ON GITHUB PAGES</div>
+                    <div class="audio-dsp-mockup">
+                      <div class="mockup-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="mockup-title">boom-boom-dsp.kt</span>
+                      </div>
+                      <div class="audio-spectrum-bars">
+                        <span style="height: 55%"></span>
+                        <span style="height: 85%"></span>
+                        <span style="height: 40%"></span>
+                        <span style="height: 95%"></span>
+                        <span style="height: 70%"></span>
+                        <span style="height: 100%"></span>
+                        <span style="height: 60%"></span>
+                        <span style="height: 80%"></span>
+                      </div>
+                      <div class="audio-tag-chip">
+                        <i data-lucide="disc"></i>
+                        <span>8D Binaural · Buffer-Level DSP</span>
+                      </div>
+                    </div>
+                    <div class="hover-glare"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 03: FLYBRAINVISION -->
+          <article class="project-card tilt-card" data-project="2">
+            <div class="card-inner">
+              <div class="project-meta">
+                <div class="project-tags">
+                  <span class="tag">NEUROSCIENCE</span>
+                  <span class="tag">3D WEBGL</span>
+                  <span class="tag">PYTHON / HTML</span>
+                </div>
+                <span class="project-index">03</span>
+              </div>
+
+              <div class="project-content-grid">
+                <div class="project-info">
+                  <div class="repo-badge-label">
+                    <i data-lucide="github"></i>
+                    <span>cbagh0819-ctrl / FlyBrainVision</span>
+                  </div>
+                  <h3 class="project-title">
+                    FlyBrainVision <span class="serif-italic">— 3D AI Connectome Engine</span>
+                  </h3>
+                  <p class="project-desc">
+                    Interactive 3D AI visualization of the FlyWire fruit-fly visual projection network. Renders dense neural pathways, synaptic connections, and projection fields directly in the browser using WebGL and Python processing.
+                  </p>
+                  
+                  <div class="project-metrics">
+                    <div class="metric">
+                      <span class="metric-num">3D</span>
+                      <span class="metric-label">WebGL Connectome Engine</span>
+                    </div>
+                    <div class="metric">
+                      <span class="metric-num">FlyWire</span>
+                      <span class="metric-label">Neural Dataset Mapping</span>
+                    </div>
+                  </div>
+
+                  <div class="project-action-group">
+                    <button class="project-inspect-btn magnetic" data-strength="20">
+                      <span>Inspect Connectome</span>
+                      <i data-lucide="maximize-2"></i>
+                    </button>
+                    <a href="https://github.com/cbagh0819-ctrl/FlyBrainVision" target="_blank" rel="noopener noreferrer" class="project-gh-btn magnetic" data-strength="15" title="View on GitHub">
+                      <i data-lucide="github"></i>
+                      <span>GitHub</span>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="project-preview-frame">
+                  <div class="preview-visual cosmic-gradient-2">
+                    <div class="visual-badge">3D NEURAL VISUALIZATION</div>
+                    <div class="node-graph-mockup">
+                      <div class="node node-a">FlyWire Visual Network</div>
+                      <div class="node-connector"></div>
+                      <div class="node node-b">3D Spatial Synapses</div>
+                    </div>
+                    <div class="hover-glare"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 04: KILL THE FLY: NEURAL HUNTER -->
+          <article class="project-card tilt-card" data-project="3">
+            <div class="card-inner">
+              <div class="project-meta">
+                <div class="project-tags">
+                  <span class="tag">THREE.JS · 3D FPS</span>
+                  <span class="tag">DROSOPHILA NEURAL AI</span>
+                  <span class="tag">WEB AUDIO · PROCEDURAL</span>
+                  <span class="tag">8-LEVEL CAMPAIGN</span>
+                </div>
+                <span class="project-index">04</span>
+              </div>
+
+              <div class="project-content-grid">
+                <div class="project-info">
+                  <div class="repo-badge-label">
+                    <i data-lucide="github"></i>
+                    <span>cbagh0819-ctrl / kill-the-fly-neural-hunter</span>
+                  </div>
+                  <h3 class="project-title">
+                    KILL THE FLY <span class="serif-italic">— Neural Hunter · 3D FPS</span>
+                  </h3>
+                  <p class="project-desc">
+                    A browser-based Three.js first-person shooter where biologically inspired fruit-fly escape circuits drive the enemy AI. Track the swarm with a live neural telemetry HUD, then fight through an eight-level campaign with procedural spatial audio.
+                  </p>
+
+                  <div class="project-metrics">
+                    <div class="metric">
+                      <span class="metric-num">8</span>
+                      <span class="metric-label">Campaign Levels</span>
+                    </div>
+                    <div class="metric">
+                      <span class="metric-num">LC4 · GF</span>
+                      <span class="metric-label">Neural-Inspired AI</span>
+                    </div>
+                  </div>
+
+                  <div class="project-action-group">
+                    <button class="project-inspect-btn magnetic" data-strength="20">
+                      <span>Inspect Neural AI</span>
+                      <i data-lucide="maximize-2"></i>
+                    </button>
+                    <a href="https://cbagh0819-ctrl.github.io/kill-the-fly-neural-hunter/landing.html#magic" target="_blank" rel="noopener noreferrer" class="project-live-btn magnetic" data-strength="15">
+                      <span>Play Live Demo</span>
+                      <i data-lucide="external-link"></i>
+                    </a>
+                    <a href="https://github.com/cbagh0819-ctrl/kill-the-fly-neural-hunter" target="_blank" rel="noopener noreferrer" class="project-gh-btn magnetic" data-strength="15" title="View on GitHub">
+                      <i data-lucide="github"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="project-preview-frame">
+                  <div class="preview-visual cosmic-gradient-2">
+                    <div class="visual-badge">NEURAL HUNTER · LIVE GAME</div>
+                    <div class="hunter-game-mockup" aria-label="First-person game HUD preview">
+                      <div class="hunter-sky">
+                        <div class="hunter-sun"></div>
+                        <div class="hunter-forest hunter-forest-far"></div>
+                        <div class="hunter-forest hunter-forest-near"></div>
+                        <div class="hunter-fly">✹</div>
+                        <div class="hunter-crosshair"><span></span></div>
+                      </div>
+                      <div class="hunter-hud-top">
+                        <span><i></i> WOODLAND CANOPY</span>
+                        <span>LEVEL <b>01</b> <span class="hud-divider">/</span> TARGETS <b>03</b></span>
+                      </div>
+                      <div class="hunter-radar" aria-hidden="true">
+                        <span class="hunter-radar-sweep"></span>
+                        <i class="hunter-ping ping-a"></i><i class="hunter-ping ping-b"></i>
+                        <b>NAV RADAR</b>
+                      </div>
+                      <div class="hunter-threat"><span></span> NEURAL THREAT DETECTED</div>
+                      <div class="hunter-hud-bottom">
+                        <span class="hunter-health"><i></i><i></i><i></i><i></i><i></i><b>VITALS</b></span>
+                        <span class="hunter-ammo"><b>08</b><small>AMMO</small></span>
+                      </div>
+                    </div>
+                    <div class="hover-glare"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 05: AETHER-1 ROCKET RESEARCH -->
+          <article class="project-card tilt-card" data-project="4">
+            <div class="card-inner">
+              <div class="project-meta">
+                <div class="project-tags">
+                  <span class="tag">AEROSPACE</span>
+                  <span class="tag">PHYSICS SIMULATION</span>
+                  <span class="tag">BLENDER 3D</span>
+                </div>
+                <span class="project-index">05</span>
+              </div>
+
+              <div class="project-content-grid">
+                <div class="project-info">
+                  <div class="repo-badge-label">
+                    <i data-lucide="github"></i>
+                    <span>cbagh0819-ctrl / aether-1-rocket-research</span>
+                  </div>
+                  <h3 class="project-title">
+                    AETHER-1 <span class="serif-italic">— Propulsion & Aerodynamics</span>
+                  </h3>
+                  <p class="project-desc">
+                    Aerospace research exploring 3D Blender aerodynamic concept modeling, ideal Tsiolkovsky rocket equation analytics, reproducible propellant energy comparisons, and validation models.
+                  </p>
+                  
+                  <div class="project-metrics">
+                    <div class="metric">
+                      <span class="metric-num">ΔV</span>
+                      <span class="metric-label">Rocket Equation Analytics</span>
+                    </div>
+                    <div class="metric">
+                      <span class="metric-num">Blender</span>
+                      <span class="metric-label">3D Geometry & Simulation</span>
+                    </div>
+                  </div>
+
+                  <div class="project-action-group">
+                    <button class="project-inspect-btn magnetic" data-strength="20">
+                      <span>Inspect Propulsion</span>
+                      <i data-lucide="maximize-2"></i>
+                    </button>
+                    <a href="https://github.com/cbagh0819-ctrl/aether-1-rocket-research" target="_blank" rel="noopener noreferrer" class="project-gh-btn magnetic" data-strength="15" title="View on GitHub">
+                      <i data-lucide="github"></i>
+                      <span>GitHub</span>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="project-preview-frame">
+                  <div class="preview-visual cosmic-gradient-3">
+                    <div class="visual-badge">AEROSPACE COMPUTING</div>
+                    <div class="candlestick-mockup">
+                      <div class="bar-chart-sim">
+                        <span style="height: 45%" title="Propellant Isp"></span>
+                        <span style="height: 80%" title="Thrust / Weight"></span>
+                        <span style="height: 65%" title="Aerodynamic Drag"></span>
+                        <span style="height: 95%" title="Optimal Trajectory"></span>
+                        <span style="height: 85%" title="Delta-V"></span>
+                      </div>
+                    </div>
+                    <div class="hover-glare"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 06: VEX -->
+          <article class="project-card tilt-card" data-project="5">
+            <div class="card-inner">
+              <div class="project-meta">
+                <div class="project-tags">
+                  <span class="tag">SYSTEMS ENGINEERING</span>
+                  <span class="tag">PRIVATE LAB</span>
+                  <span class="tag">CONFIDENTIAL R&D</span>
+                </div>
+                <span class="project-index">06</span>
+              </div>
+
+              <div class="project-content-grid">
+                <div class="project-info">
+                  <div class="repo-badge-label">
+                    <i data-lucide="lock"></i>
+                    <span>cbagh0819-ctrl / VEX (Private Repository)</span>
+                  </div>
+                  <h3 class="project-title">
+                    Project VEX <span class="serif-italic">— Low-Level Systems Lab</span>
+                  </h3>
+                  <p class="project-desc">
+                    Confidential systems engineering and automation research exploring low-level OS hooks, custom telemetry capture, memory inspection, and security instrumentation.
+                  </p>
+                  
+                  <div class="project-metrics">
+                    <div class="metric">
+                      <span class="metric-num">Private</span>
+                      <span class="metric-label">Proprietary Architecture</span>
+                    </div>
+                    <div class="metric">
+                      <span class="metric-num">Core</span>
+                      <span class="metric-label">Low-Level System Hooks</span>
+                    </div>
+                  </div>
+
+                  <div class="project-action-group">
+                    <button class="project-inspect-btn magnetic" data-strength="20">
+                      <span>Inspect Overview</span>
+                      <i data-lucide="maximize-2"></i>
+                    </button>
+                    <span class="private-tag-indicator">
+                      <i data-lucide="shield"></i> Encrypted Repo
+                    </span>
+                  </div>
+                </div>
+
+                <div class="project-preview-frame">
+                  <div class="preview-visual cosmic-gradient-4">
+                    <div class="visual-badge">SYSTEMS LAB</div>
+                    <div class="orb-container">
+                      <div class="pulsing-dream-orb"></div>
+                    </div>
+                    <div class="hover-glare"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- THE DIGITAL LAB / EXPERIMENTS -->
+    <section id="lab" class="lab-section">
+      <div class="container">
+        <div class="section-tag">
+          <span class="tag-number">03</span>
+          <span class="tag-title">THE DIGITAL PLAYGROUND</span>
+        </div>
+
+        <div class="lab-header">
+          <h2 class="lab-title">Interactive Sketches & Physics Sandboxes</h2>
+          <p class="lab-subtitle">Where unconstrained curiosity meets physics simulations, variable typography, and Web Audio synthesis.</p>
+        </div>
+
+        <div class="lab-grid">
+          
+          <div class="lab-item" data-experiment="orbit">
+            <div class="lab-preview-box">
+              <div class="interactive-sandbox" id="sandboxGrav">
+                <div class="gravity-core"></div>
+                <div class="gravity-orbit"></div>
+              </div>
+            </div>
+            <div class="lab-desc">
+              <div class="lab-info">
+                <span class="lab-type">WebGL / Physics</span>
+                <h4>Orbital Gravity Attractor</h4>
+              </div>
+              <span class="lab-status">Interactive</span>
+            </div>
+          </div>
+
+          <div class="lab-item" data-experiment="type">
+            <div class="lab-preview-box flex-center">
+              <span class="interactive-type-toy" id="interactiveTypeToy">CHANDAN</span>
+            </div>
+            <div class="lab-desc">
+              <div class="lab-info">
+                <span class="lab-type">Kinetic CSS / Variable Font</span>
+                <h4>Fluid Dynamic Stretch</h4>
+              </div>
+              <span class="lab-status">Hover Me</span>
+            </div>
+          </div>
+
+          <div class="lab-item" data-experiment="sound">
+            <div class="lab-preview-box flex-center">
+              <button class="sound-synth-trigger magnetic" id="triggerChimeBtn" data-strength="15">
+                <i data-lucide="sparkles"></i>
+                <span>Pulse Synth Chime</span>
+              </button>
+            </div>
+            <div class="lab-desc">
+              <div class="lab-info">
+                <span class="lab-type">Web Audio API</span>
+                <h4>Generative Pentatonic Chime</h4>
+              </div>
+              <span class="lab-status">Click to Trigger</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION & TRAJECTORY (PMEC & KV NO. 1 SAMBALPUR) -->
+    <section id="experience" class="experience-section">
+      <div class="container">
+        <div class="section-tag">
+          <span class="tag-number">04</span>
+          <span class="tag-title">EDUCATION & TECHNICAL TRAJECTORY</span>
+        </div>
+
+        <div class="experience-layout">
+          <!-- Left Column: Experience & Academic Journey -->
+          <div class="exp-column">
+            <h3 class="col-title">Experience & Education</h3>
+            <div class="timeline-list">
+              
+              <!-- INTERNSHIP MILESTONE -->
+              <div class="timeline-item highlight-item">
+                <div class="timeline-year">SUMMER INTERNSHIP · COMPLETED</div>
+                <div class="timeline-content">
+                  <div class="role-title">Data Analytics Intern</div>
+                  <div class="company-name">CTTC Bhubaneswar (Central Tool Room & Training Centre) · MSME Govt. of India</div>
+                  <p class="role-desc">Completed an intensive data analytics internship. Mastered end-to-end data pipelines: data understanding, automated data cleaning (null values, regex sanitization, special symbol filtering), dataset persistence, and executive interactive dashboard designing across Python, Power BI, Tableau, and Advanced Excel.</p>
+                  <div class="edu-tags">
+                    <span>CTTC Bhubaneswar</span>
+                    <span>Data Analytics</span>
+                    <span>Python & Data Cleaning</span>
+                    <span>Power BI</span>
+                    <span>Tableau Dashboards</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PMEC MILESTONE -->
+              <div class="timeline-item highlight-item">
+                <div class="timeline-year">2024 — 2028 · CURRENT (3RD YEAR)</div>
+                <div class="timeline-content">
+                  <div class="role-title">B.Tech in Computer Science & Engineering (CSE)</div>
+                  <div class="company-name">Parala Maharaja Engineering College (PMEC) · Berhampur, Odisha</div>
+                  <p class="role-desc">Specializing in core Computer Science & Engineering, algorithms, cybersecurity fundamentals, reverse engineering, and artificial intelligence architectures. Designing end-to-end autonomous testing suites like CHARLO.</p>
+                  <div class="edu-tags">
+                    <span>Computer Science & Engineering (CSE)</span>
+                    <span>3rd Year Undergraduate</span>
+                    <span>Cybersecurity & Systems</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- KV1 SAMBALPUR 12th -->
+              <div class="timeline-item">
+                <div class="timeline-year">2021 — 2023</div>
+                <div class="timeline-content">
+                  <div class="role-title">Higher Secondary Education (Class XII - Science)</div>
+                  <div class="company-name">Kendriya Vidyalaya No. 1 Sambalpur · Odisha</div>
+                  <p class="role-desc">Completed Class 12 with a strong focus on Physics, Mathematics, Chemistry, and Computer Science. Built foundational problem-solving intuition and discovered passion for programming.</p>
+                  <div class="edu-tags">
+                    <span>Class XII (Science)</span>
+                    <span>Mathematics & Physics</span>
+                    <span>Computer Science</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- KV1 SAMBALPUR 10th -->
+              <div class="timeline-item">
+                <div class="timeline-year">2019 — 2021</div>
+                <div class="timeline-content">
+                  <div class="role-title">Secondary School Examination (Class X)</div>
+                  <div class="company-name">Kendriya Vidyalaya No. 1 Sambalpur · Odisha</div>
+                  <p class="role-desc">Completed Class 10 with distinction under CBSE curriculum. Initiated independent exploration in computer hardware, basic programming logic, and Linux operating systems.</p>
+                  <div class="edu-tags">
+                    <span>Class X</span>
+                    <span>Kendriya Vidyalaya Alum</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right Column: Achievements & Certifications -->
+          <div class="exp-column">
+            <h3 class="col-title">Achievements & Certifications</h3>
+            <div class="accolades-list">
+              
+              <div class="accolade-card">
+                <div class="acc-badge">1ST PLACE</div>
+                <div class="acc-details">
+                  <h4>First Position — Code Kriti 3.0 Designathon</h4>
+                  <p>Secured top rank in the designathon for exceptional product thinking, UI/UX craft, and rapid functional prototyping.</p>
+                </div>
+              </div>
+
+              <div class="accolade-card">
+                <div class="acc-badge">LEADERSHIP</div>
+                <div class="acc-details">
+                  <h4>Team Leader — SIH Internal Hackathon 2026</h4>
+                  <p>Led project <em>EvacX</em> (Offline-First Disaster Response & Evacuation System), organized by the Idea & Innovation Cell at PMEC.</p>
+                </div>
+              </div>
+
+              <div class="accolade-card">
+                <div class="acc-badge">CERTIFIED</div>
+                <div class="acc-details">
+                  <h4>University of Michigan — Python Specialization</h4>
+                  <p>Earned verified certifications in <em>Python Data Structures</em>, <em>Using Python to Access Web Data</em>, and <em>Programming for Everybody</em>.</p>
+                </div>
+              </div>
+
+              <div class="accolade-card">
+                <div class="acc-badge">SECURITY</div>
+                <div class="acc-details">
+                  <h4>Cybersecurity & Auto-Remediation Standards</h4>
+                  <p>OWASP Top 10, CWE / NIST Standards, SARIF OASIS v2.1.0, AST Code Auto-Patching, Android APK & Windows PE analysis.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRANSMISSION / CONTACT SECTION -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="contact-card">
+          <div class="contact-aura"></div>
+          
+          <div class="contact-inner">
+            <div class="transmission-badge">
+              <span class="live-dot"></span>
+              <span>OPEN FOR COLLABORATIONS & RESEARCH</span>
+            </div>
+
+            <h2 class="contact-headline">
+              Let's engineer the future <br>
+              <span class="serif-italic dream-shimmer">with precision & code</span>.
+            </h2>
+
+            <p class="contact-subtext">
+              Undergraduate engineer at <strong>PMEC</strong>. Open for software engineering internships, cybersecurity research, and high-impact technology collaborations.
+            </p>
+
+            <!-- Copyable Email Capsule -->
+            <div class="email-capsule-wrapper">
+              <button class="copy-email-btn magnetic" id="copyEmailBtn" data-strength="25" data-email="chandanbagh71@gmail.com">
+                <span class="email-address">chandanbagh71@gmail.com</span>
+                <span class="copy-status-badge" id="copyStatus">
+                  <i data-lucide="copy" class="icon-idle"></i>
+                  <span class="status-label">Click to Copy</span>
+                </span>
+              </button>
+            </div>
+
+            <!-- Social Links Grid -->
+            <div class="social-channels">
+              <a href="https://github.com/cbagh0819-ctrl" target="_blank" rel="noopener noreferrer" class="social-link magnetic" data-strength="15">
+                <i data-lucide="github"></i>
+                <span>GitHub (@cbagh0819-ctrl)</span>
+                <i data-lucide="arrow-up-right"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/chandan-bagh-301443323/" target="_blank" rel="noopener noreferrer" class="social-link linkedin-social magnetic" data-strength="15">
+                <i data-lucide="linkedin"></i>
+                <span>LinkedIn Profile</span>
+                <i data-lucide="arrow-up-right"></i>
+              </a>
+              <a href="https://www.instagram.com/chandan.bagh07/" target="_blank" rel="noopener noreferrer" class="social-link instagram-social magnetic" data-strength="15">
+                <i data-lucide="instagram"></i>
+                <span>Instagram (@chandan.bagh07)</span>
+                <i data-lucide="arrow-up-right"></i>
+              </a>
+              <a href="https://cbagh0819-ctrl.github.io/charlo-testing-agent/" target="_blank" rel="noopener noreferrer" class="social-link magnetic" data-strength="15">
+                <i data-lucide="shield-check"></i>
+                <span>CHARLO Live App</span>
+                <i data-lucide="arrow-up-right"></i>
+              </a>
+            </div>
+
+            <!-- Footer Details -->
+            <div class="footer-bottom">
+              <div class="footer-col">
+                <span class="footer-label">ENGINEER</span>
+                <span class="footer-val">CHANDAN BAGH · PMEC 3RD YEAR</span>
+              </div>
+              <div class="footer-col">
+                <span class="footer-label">LOCATION & TIMEZONE</span>
+                <span class="footer-val" id="liveTimeClock">06:45:00 IST (ODISHA)</span>
+              </div>
+              <div class="footer-col right">
+                <span class="footer-label">EDUCATION FOUNDATION</span>
+                <span class="footer-val">KV NO. 1 SAMBALPUR ➔ PMEC</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CASE STUDY DRILL-DOWN MODAL -->
+  <div class="case-study-modal" id="caseStudyModal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-drawer">
+      
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-category" id="modalCategory">CYBERSECURITY</span>
+          <h2 class="modal-title" id="modalTitle">Project Title</h2>
+        </div>
+        <button class="modal-close-btn magnetic" id="modalCloseBtn" data-strength="20" aria-label="Close modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <div class="modal-body" id="modalBody" data-lenis-prevent>
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       AI ASSISTANT CHATBOT (CHARLO AI)
+       ========================================================================== -->
+  <div class="chatbot-wrapper" id="chatbotWrapper">
+    <!-- Floating Trigger Button -->
+    <button class="chat-launcher-btn magnetic" id="chatLauncherBtn" data-strength="15" title="Chat with Charlo AI">
+      <div class="launcher-avatar" id="launcherAvatar">
+        <div class="cat-avatar-wrap">
+          <img src="charlo-cat.jpg" alt="Charlo AI" class="cat-avatar-img idle-cat">
+          <img src="charlo-cat-open.jpg" alt="Charlo AI Talking" class="cat-avatar-img talk-cat">
+        </div>
+        <span class="online-indicator"></span>
+      </div>
+      <div class="launcher-text">
+        <span class="launcher-title">Ask Charlo AI</span>
+        <span class="launcher-status">Online · Autonomous Cat Agent</span>
+      </div>
+      <div class="launcher-sparkle">
+        <i data-lucide="sparkles"></i>
+      </div>
+    </button>
+
+    <!-- Chat Modal Window -->
+    <div class="chat-window" id="chatWindow" aria-hidden="true">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="chat-header-avatar" id="headerAvatar">
+            <div class="cat-avatar-wrap">
+              <img src="charlo-cat.jpg" alt="Charlo AI" class="cat-avatar-img idle-cat">
+              <img src="charlo-cat-open.jpg" alt="Charlo AI Talking" class="cat-avatar-img talk-cat">
+            </div>
+            <span class="header-pulse"></span>
+          </div>
+          <div>
+            <div class="chat-header-name">
+              <span>Charlo AI</span>
+              <span class="ai-badge" id="aiStatusBadge">CHARLO AI · ACTIVE</span>
+            </div>
+            <div class="chat-header-sub">Chandan's Autonomous Security & Portfolio Agent</div>
+          </div>
+        </div>
+        <div class="chat-header-controls">
+          <button class="chat-key-btn" id="chatKeyBtn" title="Real LLM Engine Settings">
+            <i data-lucide="cpu"></i>
+          </button>
+          <button class="chat-clear-btn" id="chatClearBtn" title="Clear chat history">
+            <i data-lucide="rotate-ccw"></i>
+          </button>
+          <button class="chat-close-btn" id="chatCloseBtn" title="Close chat">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Real LLM Model Panel -->
+      <div class="llm-config-panel" id="llmConfigPanel">
+        <div class="llm-config-inner">
+          <div class="llm-config-header">
+            <span class="llm-title"><i data-lucide="zap"></i> Real LLM Engine</span>
+            <span class="llm-badge" id="llmActiveStatus">Charlo Smart Engine</span>
+          </div>
+          <p class="llm-desc">Connect a free Google Gemini key to give Charlo AI live generative reasoning for <em>any</em> open question.</p>
+          <div class="llm-input-row">
+            <input type="password" id="geminiApiKeyInput" placeholder="Paste free Gemini API Key (AI Studio)...">
+            <button type="button" id="saveApiKeyBtn">Connect</button>
+          </div>
+          <div class="llm-free-link">
+            <span>Get a 100% free key at:</span>
+            <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer">aistudio.google.com ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Suggestion Chips Container -->
+      <div class="chat-chips-bar" id="chatChipsBar" data-lenis-prevent>
+        <button class="chip-btn" data-query="Can we hire Chandan?">💼 Can We Hire Him?</button>
+        <button class="chip-btn" data-query="Who is Chandan Bagh?">✦ Who is Chandan?</button>
+        <button class="chip-btn" data-query="Tell me about the CHARLO Testing Agent project">🛡️ CHARLO Agent</button>
+        <button class="chip-btn" data-query="Tell me about Boom-Boom Audio project">🎧 Boom-Boom Audio</button>
+        <button class="chip-btn" data-query="Where does Chandan study?">🎓 PMEC College & School</button>
+        <button class="chip-btn" data-query="What internship did Chandan complete?">💼 CTTC Internship</button>
+        <button class="chip-btn" data-query="What are Chandan's technical skills?">💻 Technical Skills</button>
+        <button class="chip-btn" data-query="What awards or hackathons has he won?">🏆 Awards & Hackathons</button>
+        <button class="chip-btn" data-query="How can I contact Chandan?">📬 Contact & Email</button>
+      </div>
+
+      <!-- Messages Stream -->
+      <div class="chat-messages" id="chatMessages" data-lenis-prevent>
+        <!-- Initial Welcome Message -->
+        <div class="chat-msg bot-msg">
+          <div class="msg-avatar">
+            <div class="cat-avatar-wrap mini">
+              <img src="charlo-cat.jpg" alt="Charlo AI" class="cat-avatar-img idle-cat">
+              <img src="charlo-cat-open.jpg" alt="Charlo AI Talking" class="cat-avatar-img talk-cat">
+            </div>
+          </div>
+          <div class="msg-content">
+            <p><strong>Meow! 🐾 I'm Charlo AI</strong> — Chandan Bagh's autonomous cyber-cat agent!</p>
+            <p>My boss <strong>Chandan</strong> built me to assist visitors, explain his engineering journey at <strong>PMEC</strong>, his <strong>CTTC Data Analytics internship</strong>, his <strong>CHARLO Testing Agent</strong>, <strong>Boom-Boom Audio</strong>, and <strong>KILL THE FLY: Neural Hunter</strong>, or why you should hire him!</p>
+            <p>Ask me anything or click one of the quick chips above!</p>
+            <span class="msg-time">Online</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Typing Indicator -->
+      <div class="typing-indicator" id="typingIndicator">
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+        <span class="typing-text">Charlo AI is thinking & speaking...</span>
+      </div>
+
+      <!-- Chat Input Form -->
+      <form class="chat-input-area" id="chatForm">
+        <input type="text" id="chatInput" placeholder="Ask Charlo AI about Chandan, projects, hiring..." autocomplete="off">
+        <button type="submit" id="chatSendBtn" aria-label="Send message">
+          <i data-lucide="send"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Audio Synthesizer Engine & Interactive App Logic -->
+  <script src="app.js?v=2.6"></script>
+  <script src="navigation.js?v=1.0"></script>
+</body>
+</html>

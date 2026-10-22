@@ -1,0 +1,18 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Editor directories
+.vscode/
+.idea/
+
+# Environment Variables & Secrets (NEVER COMMIT)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
