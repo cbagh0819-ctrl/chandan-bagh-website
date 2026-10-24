@@ -233,7 +233,7 @@
       window.__finishPreloader = finish;
 
       const start = performance.now();
-      const dur = 500;
+      const dur = 6000; // 6 seconds cinematic duration
 
       function calculateProgress(elapsed, totalDur) {
         const t = Math.min(1, elapsed / totalDur);
@@ -275,7 +275,7 @@
       if (preloader) {
         preloader.addEventListener('click', finish);
       }
-      setTimeout(finish, 800);
+      setTimeout(finish, 6500);
     })();
   </script>
 
