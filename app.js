@@ -606,6 +606,38 @@ document.addEventListener('DOMContentLoaded', () => {
       stack: "C/C++, Python, Windows API, Kernel Hooks, Systems Engineering",
       repo: "https://github.com/cbagh0819-ctrl/VEX"
     }
+,
+    {
+      category: "CYBERSECURITY · THREAT HUNTING",
+      title: "Quick Virus Scan — Windows Threat Hunting & Forensic Audit Engine",
+      quote: "Auditing 11 critical attack vectors in under 15 seconds with Authenticode cryptographic verification and zero dependencies.",
+      metrics: [
+        { val: "< 15s", lbl: "Full System Audit" },
+        { val: "11", lbl: "Forensic Attack Vectors" },
+        { val: "Zero-Dep", lbl: "Pure Python Stdlib" }
+      ],
+      overview: "Quick Virus Scan is an industrial-grade, lightweight incident response tool engineered to audit the operational state of Windows 10, 11, and Server in under 15 seconds. Unlike traditional file scanners that take an hour to read static files on disk, Quick Virus Scan targets active memory, running processes, startup registry run keys, scheduled tasks, and live network sockets.",
+      problem: "Traditional antivirus disk scans take 30 to 60 minutes reading inert files, allowing active stealth malware, LOLBins, and memory-injected payloads to execute undetected without fast incident response containment.",
+      solution: "Developed an 11-vector forensic scanning engine that inspects Windows Defender health, active threats, suspicious memory allocations, unquoted service paths, and Authenticode digital signatures. Generates risk threat scores and provides immediate dual-action remediation (clean/quarantine) with zero external third-party dependencies.",
+      stack: "Python 3.8+, Windows Defender API, Authenticode Cryptography, MITRE ATT&CK, PowerShell, Win32 Telemetry",
+      repo: "https://github.com/cbagh0819-ctrl/quick-virus-scan"
+    },
+    {
+      category: "FINTECH AI · QUANTITATIVE PREDICTION",
+      title: "AI Crypto 24-Hour Growth Predictor & Watchlist",
+      quote: "Institutional quantitative cryptocurrency price probability modeling with gradient-boosted decision trees.",
+      metrics: [
+        { val: "24h", lbl: "Probability Forecast" },
+        { val: "10 Min", lbl: "Automated Re-Sync" },
+        { val: "GBDT", lbl: "Gradient Boosted Trees" }
+      ],
+      overview: "An institutional-grade quantitative cryptocurrency forecasting platform engineered to calculate the calibrated probability of token price growth over the next 24 hours. Powered by gradient-boosted decision trees, Bitcoin macro regime gatekeeping, derivatives funding rates, and a live web dashboard with an automated 10-minute sync cycle.",
+      problem: "Cryptocurrency market signals are notoriously noisy, leading retail and algorithmic traders to false breakout signals due to neglecting macro regime states and derivatives funding imbalances.",
+      solution: "Engineered a multi-tiered predictive pipeline featuring Bitcoin macro regime gatekeeping, derivative volume analysis, technical indicator feature extraction, and GBDT probability calibration. Built a luxury dark-mode operator portal with live clock, auto-sync countdown, and watchlist analytics.",
+      stack: "Python 3.12, FastAPI, Gradient Boosted Decision Trees, JavaScript, HTML5/CSS3, GitHub Pages",
+      repo: "https://github.com/cbagh0819-ctrl/crypto-predictor",
+      live: "https://cbagh0819-ctrl.github.io/crypto-predictor/"
+    }
   ];
 
   const modal = document.getElementById('caseStudyModal');
@@ -774,7 +806,7 @@ CORE FACTS:
 - School: Kendriya Vidyalaya No. 1 Sambalpur (10th & 12th).
 - Internship: Data Analytics at CTTC Bhubaneswar (MSME Govt. of India) - Python, Power BI, Tableau.
 - Flagship: CHARLO Testing Agent (18 security engines, AST auto-patcher, 133 unit tests passed).
-- Projects: CHARLO Testing Agent (18 security engines, AST auto-patcher), Boom-Boom Audio (Cyberpunk 8D audio player, real-time buffer-level DSP, Kotlin & Web Audio, 100% offline AI), FlyBrainVision (3D WebGL fruit-fly connectome), KILL THE FLY: Neural Hunter (Three.js FPS with biologically inspired fruit-fly escape AI, 8-level campaign), AETHER-1 (rocket physics).
+- Projects: CHARLO Testing Agent (18 security engines, AST auto-patcher), Quick Virus Scan (11-vector Windows threat hunter & Authenticode forensic audit in <15s), AI Crypto 24h Growth Predictor (institutional GBDT machine learning & automated 10-min live watchlist at https://cbagh0819-ctrl.github.io/crypto-predictor/), Boom-Boom Audio (Cyberpunk 8D audio player, real-time buffer-level DSP, Kotlin & Web Audio, 100% offline AI), FlyBrainVision (3D WebGL fruit-fly connectome), KILL THE FLY: Neural Hunter (Three.js FPS), AETHER-1 (rocket physics).
 - Awards: 1st in Code Kriti 3.0 Designathon, Team Leader at SIH 2026 for EvacX.
 - Contact: chandanbagh71@gmail.com | LinkedIn: chandan-bagh-301443323 | Instagram: @chandan.bagh07.
 
@@ -1188,6 +1220,16 @@ TONE:
     // 15. CTTC Internship
     if (/\b(cttc|intern|internship|bhubaneswar|data analytics|power bi|tableau|excel|summer internship)\b/i.test(q)) {
       return `<p>Completed Summer Internship in <strong>Data Analytics</strong> at <strong>CTTC Bhubaneswar</strong> (MSME Govt. of India) 💼 — cleaned dirty datasets with Python regex and built Power BI & Tableau dashboards!</p>`;
+    }
+
+        // 15b. Quick Virus Scan
+    if (/\b(virus|quick virus scan|threat|malware|forensic|incident response|authenticode|defender scan)\b/i.test(q)) {
+      return `<p>🛡️⚡ <strong>Quick Virus Scan</strong> audits 11 forensic Windows attack vectors in <strong>under 15 seconds</strong> with Authenticode verification and zero third-party dependencies! Check the code: <a href="https://github.com/cbagh0819-ctrl/quick-virus-scan" target="_blank" rel="noopener noreferrer"><strong>@cbagh0819-ctrl/quick-virus-scan</strong></a> 🐾💻</p>`;
+    }
+
+    // 15c. Crypto Predictor
+    if (/\b(crypto|bitcoin|predictor|crypto predictor|24h|token|watchlist|fastapi crypto|growth predictor)\b/i.test(q)) {
+      return `<p>📈🪙 <strong>AI Crypto 24h Growth Predictor</strong> calculates calibrated price growth probabilities with GBDT machine learning, Bitcoin macro regimes, and 10-minute auto-syncs! Try the live dashboard: <a href="https://cbagh0819-ctrl.github.io/crypto-predictor/" target="_blank" rel="noopener noreferrer"><strong>Live Crypto Dashboard</strong></a> (Key: Admin / Admin@123)! 🚀🐾</p>`;
     }
 
     // 16. CHARLO Testing Agent
