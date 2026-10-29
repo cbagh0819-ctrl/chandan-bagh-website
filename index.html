@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>CHANDAN BAGH — Cybersecurity, AI & 3D Systems Engineer</title>
   <meta name="description" content="Chandan Bagh · 3rd Year Engineering at Parala Maharaja Engineering College (PMEC) · Alum KV No. 1 Sambalpur · Creator of CHARLO Autonomous AI Testing Agent & 3D Neural Connectome Engines.">
   <meta name="theme-color" content="#07080c">
@@ -81,8 +83,11 @@
     .site-preloader {
       position: fixed !important;
       inset: 0 !important;
+      width: 100% !important;
       width: 100vw !important;
-      height: 100vh !important;
+      height: 100% !important;
+      height: 100svh !important;
+      height: 100dvh !important;
       background: radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.04) 0%, #050609 70%) !important;
       background-color: #050609 !important;
       z-index: 999999 !important;
@@ -102,8 +107,8 @@
       pointer-events: none !important;
     }
     .minimal-preloader-wrap {
-      width: 90% !important;
-      max-width: 340px !important;
+      width: min(320px, calc(100vw - 2.5rem)) !important;
+      max-width: 100% !important;
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
@@ -382,16 +387,36 @@
       <!-- Quick Nav Links -->
       <nav class="main-nav" id="siteNavigation" aria-label="Main navigation">
         <a href="#works" class="nav-link magnetic" data-strength="15">GitHub Works</a>
-        <a href="games.html" class="nav-link games-nav-link magnetic" data-strength="15">Play Games</a>
+        <a href="games.html" class="nav-link games-nav-link magnetic" data-strength="15">
+          <span>Play Games</span>
+          <span class="nav-badge-new">NEW</span>
+        </a>
         <a href="#philosophy" class="nav-link magnetic" data-strength="15">Ethos</a>
         <a href="#lab" class="nav-link magnetic" data-strength="15">Lab</a>
         <a href="#experience" class="nav-link magnetic" data-strength="15">PMEC & KV1</a>
-        <button type="button" class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-controls="siteNavigation" aria-expanded="false"><span></span></button>
+        <div class="nav-mobile-audio-row">
+          <button type="button" class="nav-mobile-audio-btn" id="mobileSoundToggle">
+            <span class="nav-audio-icon">♫</span>
+            <span class="nav-audio-txt">Track: Mr. Perfect</span>
+            <span class="nav-audio-badge" id="mobileSoundState">OFF</span>
+          </button>
+        </div>
         <a href="#contact" class="nav-btn magnetic" data-strength="25">
           <span>Connect</span>
           <i data-lucide="arrow-up-right"></i>
         </a>
       </nav>
+
+      <!-- Pinned Mobile Actions (Right Side) -->
+      <div class="header-mobile-actions">
+        <a href="games.html" class="mobile-games-pill" aria-label="Play Games">
+          <span>Games</span>
+          <span class="mobile-pill-dot"></span>
+        </a>
+        <button type="button" class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-controls="siteNavigation" aria-expanded="false">
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 

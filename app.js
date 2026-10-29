@@ -350,7 +350,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const soundToggle = document.getElementById('soundToggle');
   const soundLabel = document.getElementById('soundLabel');
+  const mobileSoundToggle = document.getElementById('mobileSoundToggle');
+  const mobileSoundState = document.getElementById('mobileSoundState');
   if (soundToggle) soundToggle.title = 'Play or pause Mr. Perfect';
+
+  function syncAudioUI(isActive) {
+    if (soundLabel) soundLabel.textContent = isActive ? 'SOUND: ON' : 'SOUND: OFF';
+    if (mobileSoundState) mobileSoundState.textContent = isActive ? 'ON' : 'OFF';
+    if (mobileSoundToggle) {
+      mobileSoundToggle.classList.toggle('active', isActive);
+      mobileSoundToggle.setAttribute('aria-pressed', String(isActive));
+    }
+  }
+
+  if (mobileSoundToggle && soundToggle) {
+    mobileSoundToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      soundToggle.click();
+    });
+  }
 
   function initAudioEngine() {
     if (audioCtx) return;
@@ -391,12 +409,13 @@ document.addEventListener('DOMContentLoaded', () => {
           isSoundActive = true;
           soundToggle.classList.add('active');
           soundToggle.setAttribute('aria-pressed', 'true');
-          if (soundLabel) soundLabel.textContent = 'SOUND: ON';
+          syncAudioUI(true);
         } catch (error) {
           isSoundActive = false;
           soundToggle.classList.remove('active');
           soundToggle.setAttribute('aria-pressed', 'false');
           if (soundLabel) soundLabel.textContent = 'SOUND: UNAVAILABLE';
+          if (mobileSoundState) mobileSoundState.textContent = 'ERR';
           console.error('Could not play the selected music track.', error);
         }
       } else {
@@ -404,7 +423,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isSoundActive = false;
         soundToggle.classList.remove('active');
         soundToggle.setAttribute('aria-pressed', 'false');
-        if (soundLabel) soundLabel.textContent = 'SOUND: OFF';
+        syncAudioUI(false);
       }
     });
   }
@@ -714,12 +733,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
+    if (lenis) lenis.stop();
   }
 
   function closeCaseStudy() {
     if (!modal) return;
     modal.classList.remove('open');
     document.body.style.overflow = '';
+    if (lenis) lenis.start();
   }
 
   const inspectBtns = document.querySelectorAll('.project-inspect-btn');
