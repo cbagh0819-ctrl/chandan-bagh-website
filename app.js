@@ -513,6 +513,22 @@ document.addEventListener('DOMContentLoaded', () => {
      8. CASE STUDY DATA & DRAWER MODAL (CHANDAN BAGH GITHUB PORTFOLIO)
      ========================================================================== */
   const caseStudies = [
+        {
+      category: "SYSTEMS ARCHITECTURE · LOSSLESS COMPRESSION",
+      title: "GODZIP (.god) — Next-Gen Intelligent Lossless Compression Platform",
+      quote: "Defeating traditional archivers by unifying multi-codec adaptive optimization, Delta/BCJ pre-filtering, and chunk deduplication.",
+      metrics: [
+        { val: "60%–90%", lbl: "Space Saved (Pre-Filtered)" },
+        { val: "100%", lbl: "BLAKE3 Cryptographic Fidelity" },
+        { val: "AES-256", lbl: "GCM Authenticated Encryption" }
+      ],
+      overview: "GODZIP is a next-generation lossless compression platform, deterministic binary container format (.god), and modern Windows desktop suite. It dynamically selects the optimal algorithm per chunk across 7 codecs (Zstandard, LZMA2, Brotli, Deflate, LZ4, Store, and Neural Context), applies specialized byte pre-filters (Delta-1/2/4, RGB/RGBA Channel Splitting, and x86/x64 BCJ jump address normalization), and enforces military-grade AES-256-GCM authenticated encryption.",
+      problem: "Traditional archivers (like standard zip or rar) apply a single static codec across heterogeneous files, failing to compress pre-filtered graphics, uncompressed audio, and redundant folder structures with optimal efficiency.",
+      solution: "Engineered an intelligent content analyzer that evaluates Shannon entropy and byte distributions, benchmark-tested multi-codec search, 128KB content-defined chunk deduplication, multi-volume archive splitting, zero-dependency SFX .exe generation, and a modern charcoal dark-theme Qt desktop GUI with Windows Explorer context menu integration.",
+      stack: "Python 3.12, PySide6 (Qt 6), Zstandard, LZMA2, Brotli, LZ4, Cryptography (AES-256-GCM), BLAKE3, PyInstaller, HTML5/CSS3 Web Platform",
+      repo: "https://github.com/cbagh0819-ctrl/godzip",
+      live: "https://cbagh0819-ctrl.github.io/godzip/"
+    },
     {
       category: "CYBERSECURITY · FLAGSHIP OS",
       title: "CHARLO Testing Agent — Autonomous AI Security Workstation",
